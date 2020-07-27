@@ -20,13 +20,13 @@
         <div class="row">
             <div class="col-sm-12 col-md-12">
                 <div class="row">
-                    <div class="col-sm-12 col-md-2">
+                    <div class="col-sm-3 col-md-2">
                         <span id="high-scores"><a href="#" alt="Check out the highes scores of user of this quiz app">High Scores</a></span>
                     </div>
-                    <div class="col-sm-12 col-md-8">
+                    <div class="col-sm-6 col-md-8">
                         <!-- BLANK ONLY FOR WEB APP LAYOUT  -->
                     </div>
-                    <div class="col-sm-12 col-md-2">
+                    <div class="col-sm-3 col-md-2">
                         <span id="timer-icon">
                         <!--Using the new icons from bootstrap-->    
                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-alarm" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -44,19 +44,56 @@
             </div>
         </div>
         <!-- BEGINNING OF Start quiz container -->
-        <div class="row">
-            <div class="col-sm-12 col-md-12">
+        <!-- Responsive container full width in small screen and 6 columns in medium screens-->
+        <!--This is going to change data-state dinamically (show/hide) from javascript -->
+        <div id="start-container" datat-state="show" class="row">
+            <!--Blank col for UI purposes-->
+            <div class="col-sm-12 col-md-3"></div>
+            <div class="col-sm-12 col-md-6">
                 <!--USING new jumbotro style class from bootstrap -->
                 <div class="jumbotron jumbotron-fluid">
                     <div class="container">
                         <h1 class="display-4">Code Quiz Challange</h1>
-                        <p class="lead">Test your coding skills by taking this code challange questionary.</p>
-                        <button>Start Quiz</button>
+                        <p class="lead">Test your coding skills by taking this code challange test. To start click on the button below. When you start the test timer starts automaticaly and display the ramainder time to finish your test. You have to choose the correct
+                            answer of the questions that are going to be displayed. If you answer correct you will gain 10+ seconds on your timer</p>
+                        <button type="button">Start Quiz</button>
                     </div>
                 </div>
             </div>
+            <!--Blank col for UI purposes-->
+            <div class="col-sm-12 col-md-3"></div>
         </div>
         <!-- END OF Start quiz container -->
+        <!--Container of the quiz questions this div container is sectioned in 3 parts
+        questions, answers and results the html inside of this sections is going to be dinamically 
+        created from the javascript file binded to this html file-->
+        <div id="quiz-container" data-state="hide" class="row">
+            <div class="col-sm-12 col-md-12">
+                <div id="questions" class="card card-tittle">
+                    <!-- Stu html for testing UI-->
+                    <!-- <h1>Question #1:</h1>
+                    <p>How do you create a variable in javascript?</p> -->
+                </div>
+                <div class="row">
+                    <div id="answers" class="col-sm-12 col-md-3">
+                        <!-- Stu html for testing UI-->
+                        <!-- <div class="card card-body">
+                            <button>Let</button>
+                            <button>Var</button>
+                            <button>Const</button>
+                            <button>All of the above</button>
+                        </div> -->
+                    </div>
+                    <div id="results" class="col-sm-12 col-md-9">
+                        <!-- Stu html for testing UI-->
+                        <!-- <div class="card card-body">
+                            <h1>Correct</h1>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <!--End of container of-->
+        </div>
     </div>
 </body>
 <!--Binding javascript code of this app-->
