@@ -46,7 +46,7 @@
         <!-- BEGINNING OF Start quiz container -->
         <!-- Responsive container full width in small screen and 6 columns in medium screens-->
         <!--This is going to change data-state dinamically (show/hide) from javascript -->
-        <div id="start-container" datat-state="show" class="row">
+        <div id="start-container" data-state="show" style="" class="row">
             <!--Blank col for UI purposes-->
             <div class="col-sm-12 col-md-3"></div>
             <div class="col-sm-12 col-md-6">
@@ -56,7 +56,7 @@
                         <h1 class="display-4">Code Quiz Challange</h1>
                         <p class="lead">Test your coding skills by taking this code challange test. To start click on the button below. When you start the test timer starts automaticaly and display the ramainder time to finish your test. You have to choose the correct
                             answer of the questions that are going to be displayed. If you answer correct you will gain 10+ seconds on your timer</p>
-                        <button type="button">Start Quiz</button>
+                        <button id="start-quiz" type="button">Start Quiz</button>
                     </div>
                 </div>
             </div>
@@ -97,6 +97,7 @@
     </div>
 </body>
 <!--Binding javascript code of this app-->
+<script src="./script.js"></script>
 <!--Binding javascript animations from bootstrap library classes-->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
