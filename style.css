@@ -23,10 +23,11 @@ ul {
     list-style-type: none;
     padding: 0px;
     margin: 0px;
+    text-align: center;
 }
 
 .btn-answers {
-    width: 100%;
+    width: 50%;
 }
 
 @media screen and (max-width: 960px) {
