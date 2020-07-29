@@ -64,10 +64,11 @@
             <div class="col-sm-12 col-md-3"></div>
         </div>
         <!-- END OF Start quiz container -->
+
         <!--Container of the quiz questions this div container is sectioned in 3 parts
         questions, answers and results the html inside of this sections is going to be dinamically 
         created from the javascript file binded to this html file-->
-        <div id="quiz-container" data-state="hide" class="row">
+        <div id="quiz-container" data-state="hide" style="display:none;" class="row">
             <div class="col-sm-12 col-md-12">
                 <div id="questions" class="card card-tittle">
                     <!-- Stu html for testing UI-->
@@ -75,14 +76,17 @@
                     <p>How do you create a variable in javascript?</p> -->
                 </div>
                 <div class="row">
-                    <div id="answers" class="col-sm-12 col-md-3">
-                        <!-- Stu html for testing UI-->
-                        <!-- <div class="card card-body">
-                            <button>Let</button>
+                    <div class="col-sm-12 col-md-3">
+                        <div class="card card-body">
+                            <!-- Stu html for testing UI-->
+                            <!-- <button>Let</button>
                             <button>Var</button>
                             <button>Const</button>
-                            <button>All of the above</button>
-                        </div> -->
+                            <button>All of the above</button> -->
+                            <ul id="answers">
+
+                            </ul>
+                        </div>
                     </div>
                     <div id="results" class="col-sm-12 col-md-9">
                         <!-- Stu html for testing UI-->

@@ -19,6 +19,16 @@ button {
     border-radius: 5px;
 }
 
+ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.btn-answers {
+    width: 100%;
+}
+
 @media screen and (max-width: 960px) {
     #start-container {
         /*/margin-left: 40%;*/
