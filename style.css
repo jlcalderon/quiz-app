@@ -34,4 +34,7 @@ ul {
     #start-container {
         /*/margin-left: 40%;*/
     }
+    #quiz-container {
+        text-align: center;
+    }
 }

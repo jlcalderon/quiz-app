@@ -11,7 +11,7 @@ let countdown = 60;
 //////////* JSON object to store questions and their answers */
 let questions = {
         "id": 1,
-        "question": "Whats the only way to create a variable in plain JavaScript",
+        "question": "Whats the only way to create a variable in plain JavaScript?",
         "answers": [
             { "id": 1, "text": "const", "flag": false },
             { "id": 2, "text": "let", "flag": false },
