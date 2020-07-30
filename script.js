@@ -9,8 +9,6 @@ const submitContainer = document.getElementById("submit-results");
 const questionsDiv = document.getElementById("questions");
 const answersDiv = document.getElementById("answers");
 const results = document.getElementById("results");
-//Hidden input text to control next question on change
-const questionCountesEl = document.getElementById("questions-counter");
 ///////
 
 /* Counter variable to handle the timer */
@@ -103,8 +101,12 @@ function printQuestionsToDOM(index) {
                 results.innerHTML = `<div class="card card-body">
                                         <h1>Incorrect -10</h1>
                                     </div>`;
+                /*/increment the questions count variable
+                 clean html content of divs and 
+                 call out the render next with the next question value*/
                 countQuestions++;
-                //questionCountesEl.value = countQuestions;
+                //results.innerHTML = "";
+                answersDiv.innerHTML = "";
                 renderNext();
                 //Exit the function                    
                 return;
@@ -115,8 +117,12 @@ function printQuestionsToDOM(index) {
                 results.innerHTML = `<div class="card card-body">
                                         <h1>Correct +10</h1>
                                     </div>`;
+                /*/increment the questions count variable
+                 clean html content of divs and 
+                 call out the render next with the next question value*/
                 countQuestions++;
-                //questionCountesEl.value = countQuestions;
+                //results.innerHTML = "";
+                answersDiv.innerHTML = "";
                 renderNext();
                 //Exit this function                                        
                 return;
@@ -180,7 +186,7 @@ startBtn.addEventListener("click", (e) => {
 
     //render first question
     printQuestionsToDOM(countQuestions);
-    console.log(`working on question # ${countQuestions}`);
+    console.log(`working on question index ${countQuestions}`);
 });
 /////////
 
@@ -192,8 +198,8 @@ startBtn.addEventListener("click", (e) => {
 });*/
 
 function renderNext() {
-    if (countQuestions < questions.length - 1) {
-        console.log(`working on question # ${countQuestions}`);
+    if (countQuestions < questions.length) {
+        console.log(`working on question index ${countQuestions}`);
         printQuestionsToDOM(countQuestions);
     }
 }
