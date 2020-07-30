@@ -1,12 +1,16 @@
 ////////* Elements binded to a variable */
 const timer = document.getElementById("timer-count");
 const startBtn = document.getElementById("start-quiz");
+//Divs main containers of this app
 const startContainer = document.getElementById("start-container");
 const quizConatiner = document.getElementById("quiz-container");
 const submitContainer = document.getElementById("submit-results");
-const questionsDiv = document.getElementById("answers");
+//Divs sections of the question container 
+const questionsDiv = document.getElementById("questions");
 const answersDiv = document.getElementById("answers");
 const results = document.getElementById("results");
+//Hidden input text to control next question on change
+const questionCountesEl = document.getElementById("questions-counter");
 ///////
 
 /* Counter variable to handle the timer */
@@ -68,7 +72,7 @@ let questions = [{
         ]
     },
 ];
-console.log(questions.length);
+console.log(`JSON array of questions length = ${questions.length}`);
 ////////////////End of the JSON object array of the questions
 
 /// Variable array to store score results
@@ -100,6 +104,7 @@ function printQuestionsToDOM(index) {
                                         <h1>Incorrect -10</h1>
                                     </div>`;
                 countQuestions++;
+                questionCountesEl.value = countQuestions;
                 //Exit the function                    
                 return;
             } else { //evaluate if the answer clicked is correct
@@ -110,6 +115,7 @@ function printQuestionsToDOM(index) {
                                         <h1>Correct +10</h1>
                                     </div>`;
                 countQuestions++;
+                questionCountesEl.value = countQuestions;
                 //Exit this function                                        
                 return;
             }
@@ -121,9 +127,6 @@ function printQuestionsToDOM(index) {
     }
 }
 ///////////
-
-
-
 
 ///////// Start the countdown timer.
 function startTimer() {
@@ -173,11 +176,18 @@ startBtn.addEventListener("click", (e) => {
     quizConatiner.setAttribute("data-state", "show");
     quizConatiner.setAttribute("style", "display:block;");
 
-    //render questions
+    //render first question
     printQuestionsToDOM(countQuestions);
-    console.log(countQuestions);
+    console.log(`working on question # ${countQuestions}`);
 });
 /////////
+
+//Render next question on input question counter change
+questionCountesEl.addEventListener("input", (e) => {
+    e.preventDefault();
+    console.log(`input question-counter changed + ${e.target.value}`);
+    printQuestionsToDOM();
+});
 
 //// Submit results
 function showSubmitResults() {
