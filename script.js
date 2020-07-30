@@ -99,13 +99,12 @@ function printQuestionsToDOM(index) {
                 countdown = countdown - 10;
                 // Display result to the user
                 results.innerHTML = `<div class="card card-body">
-                                        <h1>Incorrect -10</h1>
+                                        <h1>Your Previous answer was Incorrect -10</h1>
                                     </div>`;
                 /*/increment the questions count variable
                  clean html content of divs and 
                  call out the render next with the next question value*/
                 countQuestions++;
-                //results.innerHTML = "";
                 answersDiv.innerHTML = "";
                 renderNext();
                 //Exit the function                    
@@ -115,13 +114,12 @@ function printQuestionsToDOM(index) {
                 countdown = countdown + 10;
                 // Display result to the user
                 results.innerHTML = `<div class="card card-body">
-                                        <h1>Correct +10</h1>
+                                        <h1>Way to go! your previous answer was Correct +10</h1>
                                     </div>`;
                 /*/increment the questions count variable
                  clean html content of divs and 
                  call out the render next with the next question value*/
                 countQuestions++;
-                //results.innerHTML = "";
                 answersDiv.innerHTML = "";
                 renderNext();
                 //Exit this function                                        
@@ -190,17 +188,13 @@ startBtn.addEventListener("click", (e) => {
 });
 /////////
 
-//Render next question on input question counter change
-/* questionCountesEl.addEventListener("input", (e) => {
-    e.preventDefault();
-    console.log(`input question-counter changed + ${e.target.value}`);
-    printQuestionsToDOM(countQuestions);
-});*/
-
+//Render next question function
 function renderNext() {
     if (countQuestions < questions.length) {
         console.log(`working on question index ${countQuestions}`);
         printQuestionsToDOM(countQuestions);
+    } else {
+        quizConatiner.setAttribute("style", "display:none;");
     }
 }
 
