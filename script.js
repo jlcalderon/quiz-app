@@ -104,7 +104,8 @@ function printQuestionsToDOM(index) {
                                         <h1>Incorrect -10</h1>
                                     </div>`;
                 countQuestions++;
-                questionCountesEl.value = countQuestions;
+                //questionCountesEl.value = countQuestions;
+                renderNext();
                 //Exit the function                    
                 return;
             } else { //evaluate if the answer clicked is correct
@@ -115,7 +116,8 @@ function printQuestionsToDOM(index) {
                                         <h1>Correct +10</h1>
                                     </div>`;
                 countQuestions++;
-                questionCountesEl.value = countQuestions;
+                //questionCountesEl.value = countQuestions;
+                renderNext();
                 //Exit this function                                        
                 return;
             }
@@ -183,11 +185,18 @@ startBtn.addEventListener("click", (e) => {
 /////////
 
 //Render next question on input question counter change
-questionCountesEl.addEventListener("input", (e) => {
+/* questionCountesEl.addEventListener("input", (e) => {
     e.preventDefault();
     console.log(`input question-counter changed + ${e.target.value}`);
-    printQuestionsToDOM();
-});
+    printQuestionsToDOM(countQuestions);
+});*/
+
+function renderNext() {
+    if (countQuestions < questions.length - 1) {
+        console.log(`working on question # ${countQuestions}`);
+        printQuestionsToDOM(countQuestions);
+    }
+}
 
 //// Submit results
 function showSubmitResults() {
