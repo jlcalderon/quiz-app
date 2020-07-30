@@ -71,15 +71,14 @@ let questions = [{
 console.log(questions.length);
 ////////////////End of the JSON object array of the questions
 
-//////////* Printing questions to the console */
-function printQuestionsToConsole() {
-    console.log(questions.id);
-    console.log(questions.question);
-    for (let y = 0; y < questions.answers.length; y++) {
-        console.log(JSON.stringify(questions.answers[y]));
-    }
-}
-///////////
+/// Variable array to store score results
+let testResultsArray = []; //items inside are going to be json objects with the 2 localstorage variables
+let testTakerResultLS = localStorage.getItem("test-taker-result");
+let testTakerLS = localStorage.getItem("test-taker-name");
+
+
+
+/////// Functions Start here //////////////////////////
 
 //////////* Printing questions to the DOM */
 function printQuestionsToDOM(index) {
@@ -129,15 +128,28 @@ function printQuestionsToDOM(index) {
 ///////// Start the countdown timer.
 function startTimer() {
     let interval = setInterval(() => {
-        countdown--;
-        timer.textContent = `Your time left: ${countdown}`;
+        //Evaluate if test taker is done with the test
+        if (countQuestions <= (questions.length - 1)) {
+            countdown--;
+            timer.textContent = `Your time left: ${countdown}`;
+        } else {
+            clearInterval(interval);
+            timer.textContent = `Your time left: ${countdown}`;
+            quizConatiner.setAttribute("style", "display:none;");
+            submitContainer.setAttribute("style", "display:block;");
+            localStorage.setItem("test-taker-result", countdown);
+            return;
+        }
         if (countdown === 0) {
             clearInterval(interval);
             //alert("Game Over");
-            quizConatiner.setAttribute("style", "display:none;")
+            quizConatiner.setAttribute("style", "display:none;");
             submitContainer.setAttribute("style", "display:block;");
+            localStorage.setItem("test-taker-result", countdown);
+            showSubmitResults();
             return;
         }
+
     }, 1000);
 }
 //////////
@@ -162,9 +174,12 @@ startBtn.addEventListener("click", (e) => {
     quizConatiner.setAttribute("style", "display:block;");
 
     //render questions
-    if (countQuestions < questions.length) {
-        printQuestionsToDOM(countQuestions);
-        console.log(countQuestions);
-    }
+    printQuestionsToDOM(countQuestions);
+    console.log(countQuestions);
 });
 /////////
+
+//// Submit results
+function showSubmitResults() {
+
+}
