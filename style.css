@@ -17,6 +17,10 @@ h1 {
     text-align: center;
 }
 
+#submit-results {
+    text-align: -webkit-center;
+}
+
 button {
     padding: 2%;
     line-height: 1.2;

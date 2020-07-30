@@ -3,6 +3,7 @@ const timer = document.getElementById("timer-count");
 const startBtn = document.getElementById("start-quiz");
 const startContainer = document.getElementById("start-container");
 const quizConatiner = document.getElementById("quiz-container");
+const submitContainer = document.getElementById("submit-results");
 const questionsDiv = document.getElementById("answers");
 const answersDiv = document.getElementById("answers");
 const results = document.getElementById("results");
@@ -101,7 +102,7 @@ function printQuestionsToDOM(index) {
                                     </div>`;
                 countQuestions++;
                 //Exit the function                    
-                //return;
+                return;
             } else { //evaluate if the answer clicked is correct
                 //Add time to the timer
                 countdown = countdown + 10;
@@ -111,7 +112,7 @@ function printQuestionsToDOM(index) {
                                     </div>`;
                 countQuestions++;
                 //Exit this function                                        
-                //return;
+                return;
             }
 
         });
@@ -132,7 +133,9 @@ function startTimer() {
         timer.textContent = `Your time left: ${countdown}`;
         if (countdown === 0) {
             clearInterval(interval);
-            alert("Game Over");
+            //alert("Game Over");
+            quizConatiner.setAttribute("style", "display:none;")
+            submitContainer.setAttribute("style", "display:block;");
             return;
         }
     }, 1000);
@@ -162,10 +165,6 @@ startBtn.addEventListener("click", (e) => {
     if (countQuestions < questions.length) {
         printQuestionsToDOM(countQuestions);
         console.log(countQuestions);
-    }
-
-    if (countdown === 0 || countQuestions === 5) {
-        alert("Game Over");
     }
 });
 /////////
