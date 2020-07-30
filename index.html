@@ -67,7 +67,7 @@
 
         <!--Container of the quiz questions this div container is sectioned in 3 parts
         questions, answers and results the html inside of this sections is going to be dinamically 
-        created from the javascript file binded to this html file-->
+        created/rendered from the javascript file binded to this html file-->
         <div id="quiz-container" data-state="hide" style="display:none;" class="row">
             <div class="row">
                 <!--Blank col for UI purposes-->
@@ -105,7 +105,23 @@
                 <div class="col-sm-12 col-md-3"></div>
             </div>
         </div>
-        <!--End of container of-->
+        <!--End of quiz container-->
+    </div>
+    <!-- end of wrapper -->
+    <div id="submit-results" data-state="hide" style="display:none;" class="row">
+        <!--Blank col for UI purposes-->
+        <div class="col-sm-12 col-md-3"></div>
+        <div class="col-sm-12 col-md-6">
+            <form>
+                <div class="form-group mb-2">
+                    <label for="test-taker-initial">Submit your results:</label>
+                    <input type="text" name="test-taker-initial" id="test-taker-initial" class="form-control" placeholder="Initials here" required/>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <!--Blank col for UI purposes-->
+        <div class="col-sm-12 col-md-3"></div>
     </div>
 </body>
 <!--Binding javascript code of this app-->
