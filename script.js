@@ -9,7 +9,13 @@ const submitContainer = document.getElementById("submit-results");
 const questionsDiv = document.getElementById("questions");
 const answersDiv = document.getElementById("answers");
 const results = document.getElementById("results");
+
+//Form submit results
+const submitFrmEl = document.getElementById("test-taker-results-submit");
+const testTakerInitialsEl = document.getElementById("test-taker-initials");
 ///////
+
+
 
 /* Counter variable to handle the timer */
 let countdown = 60;
@@ -149,13 +155,12 @@ function startTimer() {
             localStorage.setItem("test-taker-result", countdown);
             return;
         }
+        //Evaluate if time is over
         if (countdown === 0) {
             clearInterval(interval);
-            //alert("Game Over");
             quizConatiner.setAttribute("style", "display:none;");
             submitContainer.setAttribute("style", "display:block;");
             localStorage.setItem("test-taker-result", countdown);
-            showSubmitResults();
             return;
         }
 
@@ -174,6 +179,8 @@ function hideStartingContainer() {
 
 ///////// Start test by the button click
 startBtn.addEventListener("click", (e) => {
+    //Set questions counter to back to 0;
+    countQuestions = 0;
     //call out start timer function
     startTimer();
     //hide the start container
@@ -195,10 +202,24 @@ function renderNext() {
         printQuestionsToDOM(countQuestions);
     } else {
         quizConatiner.setAttribute("style", "display:none;");
+        submitContainer.setAttribute("style", "display:block;");
     }
 }
 
 //// Submit results
-function showSubmitResults() {
-
-}
+submitFrmEl.addEventListener("submit", (e) => {
+    e.preventDefault();
+    localStorage.setItem("test-taker-name", testTakerInitialsEl.value);
+    localStorage.setItem("test-taker-result", countdown);
+    submitContainer.setAttribute("style", "display:none;");
+    startContainer.setAttribute("data-state", "show");
+    startContainer.setAttribute("style", "display:block;");
+    let jsonResult = {
+        testtaker: testTakerLS,
+        testscore: testTakerResultLS,
+    };
+    testResultsArray.push(jsonResult);
+    //console.log(testResultsArray);
+    localStorage.setItem("results", testResultsArray);
+    window.location = "./scoresboard.html";
+});
