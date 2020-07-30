@@ -4,7 +4,7 @@ const scoresDashboardText = document.getElementById("scores-board");
 //get array of results from localstorage
 let resulstArray = localStorage.getItem("results");
 //Render scores dashboard
-console.log(resulstArray.testtaker);
+console.log(resulstArray[0]);
 renderScores();
 
 function renderScores() {

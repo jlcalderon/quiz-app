@@ -218,7 +218,7 @@ submitFrmEl.addEventListener("submit", (e) => {
         testtaker: testTakerLS,
         testscore: testTakerResultLS,
     };
-    testResultsArray.push(jsonResult);
+    testResultsArray.push(JSON.stringify(jsonResult));
     //console.log(testResultsArray);
     localStorage.setItem("results", testResultsArray);
     window.location = "./scoresboard.html";
