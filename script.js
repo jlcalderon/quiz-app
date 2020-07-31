@@ -83,9 +83,6 @@ console.log(`JSON array of questions length = ${questions.length}`);
 let testResultsArray = []; //items inside are going to be json objects with the 2 localstorage variables
 let testTakerResultLS = localStorage.getItem("test-taker-result");
 let testTakerLS = localStorage.getItem("test-taker-name");
-
-
-
 /////// Functions Start here //////////////////////////
 
 //////////* Printing questions to the DOM */
@@ -214,12 +211,5 @@ submitFrmEl.addEventListener("submit", (e) => {
     submitContainer.setAttribute("style", "display:none;");
     startContainer.setAttribute("data-state", "show");
     startContainer.setAttribute("style", "display:block;");
-    let jsonResult = {
-        testtaker: testTakerLS,
-        testscore: testTakerResultLS,
-    };
-    testResultsArray.push(JSON.stringify(jsonResult));
-    //console.log(testResultsArray);
-    localStorage.setItem("results", testResultsArray);
     window.location = "./scoresboard.html";
 });
